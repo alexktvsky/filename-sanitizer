@@ -7,8 +7,13 @@ from filename_sanitizer.replacer import Replacer
 
 
 class FilenameSanitizer:
-    def __init__(self, table: List[ReplaceTableItem] = None) -> None:
+    def __init__(
+        self,
+        table: List[ReplaceTableItem] = None,
+        to_lower: bool = False,
+    ) -> None:
         self._transliter = Transliter()
+        self._to_lower = to_lower
         self._replacer = Replacer(table)
 
     def sanitize(self, filename: str) -> str:
@@ -21,7 +26,9 @@ class FilenameSanitizer:
         except LanguageDetectionError:
             pass
 
-        sanitized_name = sanitized_name.lower()
+        if self._to_lower:
+            sanitized_name = sanitized_name.lower()
+
 
         sanitized_name = self._replacer.replace_all(sanitized_name)
 

@@ -4,7 +4,7 @@ import setuptools
 
 name = 'filename-sanitizer'
 description = 'Simple filename sanitization utility'
-version = '0.2.1'
+version = '0.2.2'
 dependencies = [
     'transliterate~=1.10.2',
 ]

@@ -80,6 +80,7 @@ def main():
     parser.add_argument('-n', '--name', action='store_true', default=False, help='sanitize only filename')  # noqa: E501
     parser.add_argument('-r', '--recursive', action='store_true', default=False, help='sanitize directories recursively')  # noqa: E501
     parser.add_argument('-i', '--interactively', action='store_true', default=False, help='prompt before rename')  # noqa: E501
+    parser.add_argument('-l', '--lower', action='store_true', default=False, help='convert to the lowercased string')  # noqa: E501
     parser.add_argument('-v', '--verbose', action='store_true', default=False, help='explain what is being done')  # noqa: E501
     parser.add_argument('-V', '--version', action='version', version=_get_version(), help='output version information and exit')  # noqa: E501
 
@@ -89,7 +90,7 @@ def main():
     if args.table:
         _additional_table = _read_additional_table(args.table)
 
-    sanitizer = FilenameSanitizer(_additional_table)
+    sanitizer = FilenameSanitizer(_additional_table, args.lower)
 
     if args.name:
         _sanitize_filename(sanitizer, args.filename)
