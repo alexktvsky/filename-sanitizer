@@ -1,19 +1,14 @@
 import os
 import setuptools
 
+from filename_sanitizer import __version__
+
 
 name = 'filename-sanitizer'
 description = 'Simple filename sanitization utility'
-version = '0.2.2'
-dependencies = [
-    'transliterate~=1.10.2',
-]
-extras = {}
+version = __version__
 
-packages = [
-    package
-    for package in setuptools.PEP420PackageFinder.find()
-]
+dependencies = []
 
 entry_points = {
     'console_scripts': [
@@ -29,12 +24,13 @@ setuptools.setup(
     author_email='',
     license='',
     url='',
-    platforms='Posix; MacOS X; Windows',
-    packages=packages,
-    install_requires=dependencies,
-    extras_require=extras,
-    python_requires='>=3.7',
+    packages=setuptools.find_packages(),
+    package_data={
+        'filename_sanitizer': ['data/*.sed']
+    },
     include_package_data=True,
-    zip_safe=False,
+    python_requires='>=3.7',
+    install_requires=dependencies,
     entry_points=entry_points,
+    zip_safe=False
 )
