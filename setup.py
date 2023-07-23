@@ -12,7 +12,7 @@ dependencies = []
 
 entry_points = {
     'console_scripts': [
-        'filename-sanitizer = filename_sanitizer.main:main'
+        'filename-sanitizer = filename_sanitizer.__main__:main'
     ],
 }
 

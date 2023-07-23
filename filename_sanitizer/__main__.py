@@ -91,7 +91,6 @@ def get_data_files_path():
 
 
 def main():
-
     parser = argparse.ArgumentParser()
     parser.add_argument('filename')
     parser.add_argument('-s', '--separator', type=str, default='_', help='word separator')  # noqa: E501
