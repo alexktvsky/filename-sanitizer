@@ -7,13 +7,9 @@ from filename_sanitizer import __version__
 name = 'filename-sanitizer'
 description = 'Simple filename sanitization utility'
 version = __version__
-
-dependencies = []
-
+dependencies = ['Unidecode>=1.3.2']
 entry_points = {
-    'console_scripts': [
-        'filename-sanitizer = filename_sanitizer.__main__:main'
-    ],
+    'console_scripts': ['filename-sanitizer = filename_sanitizer.__main__:main']
 }
 
 setuptools.setup(
@@ -25,9 +21,7 @@ setuptools.setup(
     license='',
     url='',
     packages=setuptools.find_packages(),
-    package_data={
-        'filename_sanitizer': ['data/*.sed']
-    },
+    package_data={},
     include_package_data=True,
     python_requires='>=3.7',
     install_requires=dependencies,
